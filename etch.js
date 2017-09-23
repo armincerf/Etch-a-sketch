@@ -6,7 +6,8 @@ $(document).ready(function() {
   $('#frame')
     .css('width', gridSize + 'vh')
     .css('height', gridSize + 'vh');
-  var color = '#000'
+  var colour = '#000'
+  var prevColour = '#0'
 
   function createGrid() {
     $('#frame').html('').css('background', '#fff');
@@ -25,7 +26,7 @@ $(document).ready(function() {
 
 
     $('#frame div').on('mousedown', function() {
-      $(this).css('background', color);
+      $(this).css('background', colour);
     });
 
     var mouseDown = 0;
@@ -35,7 +36,7 @@ $(document).ready(function() {
 
     $('#frame div').mousemove(function() {
       if (mouseDown === 1)
-        $(this).css('background', color);
+        $(this).css('background', colour);
     });
     $('#frame div').on('dragstart', function() {
       return false;
@@ -43,12 +44,22 @@ $(document).ready(function() {
   }
 
   function randomColour() {
-    color = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
-    $('#preview').css('color', color);
-    $('#preview').css('background-color', color);
-
-
-
+    colour = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
+    prevColour = colour;
+    updateColour();
+  }
+  function selectRubber(){
+    prevColour = colour;
+    colour = '#fff';
+    updateColour();
+  }
+  function selectPen(){
+    colour = prevColour;
+    updateColour();
+  }
+  function updateColour(){
+    $('#preview').css('color', colour);
+    $('#preview').css('background-color', colour);
   }
 
   $('#create').on('click', function(){
@@ -56,6 +67,12 @@ $(document).ready(function() {
   });
   $('#random').on('click', function(){
     randomColour();
+  })
+  $('#rubber').on('click', function(){
+    selectRubber();
+  })
+  $('#pen').on('click', function(){
+    selectPen();
   })
 
 }); //end ready
