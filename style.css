@@ -1,0 +1,58 @@
+html, body {
+	padding: 0;
+	margin: 0;
+  border: 0;
+}
+
+html {
+	font-size: 1em;
+}
+
+body {
+  	color: #fff;
+	background: #444;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+#header {
+	display: inline;
+}
+
+
+#num {
+	width: 36px;
+	height: 28px;
+	padding: 10px;
+	background-color: #222;
+	color: #bf9720;
+	border: 0 none;
+	font-size: 1.4em;
+	text-align: center;
+}
+
+#num:hover {
+	cursor: pointer;
+}
+
+#create {
+	display: block;
+	margin: 0 auto;
+	border: 0 none;
+	padding: 10px;
+	border-radius: 0;
+	background-color: #bf9720;
+	color: inherit;
+}
+
+#frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+	flex-wrap: wrap;
+	margin-top: 2.5vh;
+}
+
+
