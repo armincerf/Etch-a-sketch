@@ -37,14 +37,29 @@ body {
 	cursor: pointer;
 }
 
-#create {
-	display: block;
+input {
+	display: inline;
 	margin: 0 auto;
 	border: 0 none;
 	padding: 10px;
+	margin-bottom:  20px;
+	margin-top: 20px;
 	border-radius: 0;
 	background-color: #bf9720;
 	color: inherit;
+	width: 200px
+}
+#preview {
+	display: inline;
+	width: 20px;
+	height: 20px;
+	background-color: black;
+	color: black;
+	border: 2px solid white;
+}
+#preview-text {
+	display: block;
+
 }
 
 #frame {

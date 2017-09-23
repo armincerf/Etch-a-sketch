@@ -1,13 +1,12 @@
 $(document).ready(function() {
 
-  $('#num').on('click', function() {
-    $(this).select();
-  });
+  
 
   var gridSize = 75;
   $('#frame')
     .css('width', gridSize + 'vh')
     .css('height', gridSize + 'vh');
+  var color = '#000'
 
   function createGrid() {
     $('#frame').html('').css('background', '#fff');
@@ -26,7 +25,7 @@ $(document).ready(function() {
 
 
     $('#frame div').on('mousedown', function() {
-      $(this).css('background', '#000');
+      $(this).css('background', color);
     });
 
     var mouseDown = 0;
@@ -36,16 +35,28 @@ $(document).ready(function() {
 
     $('#frame div').mousemove(function() {
       if (mouseDown === 1)
-        $(this).css('background', '#000');
+        $(this).css('background', color);
     });
     $('#frame div').on('dragstart', function() {
       return false;
     });
   }
 
+  function randomColour() {
+    color = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
+    $('#preview').css('color', color);
+    $('#preview').css('background-color', color);
+
+
+
+  }
+
   $('#create').on('click', function(){
     createGrid();
   });
+  $('#random').on('click', function(){
+    randomColour();
+  })
 
 }); //end ready
 
